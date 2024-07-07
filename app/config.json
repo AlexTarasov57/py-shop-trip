@@ -12,6 +12,7 @@
             "money": 55,
             "car": {
                 "brand": "Suzuki",
+
                 "fuel_consumption": 9.9
             }
         },
