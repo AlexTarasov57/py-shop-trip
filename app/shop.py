@@ -22,9 +22,9 @@ class Shops:
 
     def print_check(self, customer: Customer) -> None:
         datatime_now = datetime(2021, 1, 4, 12, 33, 41)
-        print(f"\nDate: {datatime_now.strftime("%d/%m/%Y %H:%M:%S")}\n"
-              f"Thanks, {customer.name}, for your purchase!\n"
-              f"You have bought: ")
+        print(f"\nDate: {datatime_now.strftime("%d/%m/%Y %H:%M:%S")}")
+        print(f"Thanks, {customer.name}, for your purchase!")
+        print("You have bought:")
         for keys, value in customer.product_cart.items():
             amount = self.products[keys] * value
             print(f"{value} {keys}s for "
