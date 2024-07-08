@@ -2,7 +2,7 @@ import json
 
 from app.car import Car
 from app.customer import Customer
-from app.shop import Shops
+from app.shop import Shop
 
 
 def shop_trip() -> None:
@@ -26,10 +26,7 @@ def shop_trip() -> None:
             prices = {}
 
             for shop in shops:
-                shoping = Shops(
-                    shop["name"],
-                    shop["location"],
-                    shop["products"])
+                shoping = Shop(**shop)
                 fuel_cost = (fuel_price
                              * car.litres_per_trip(shoping, customer))
                 total = round(

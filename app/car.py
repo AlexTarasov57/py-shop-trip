@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from app.customer import Customer
-from app.shop import Shops
+from app.shop import Shop
 
 
 @dataclass
@@ -11,7 +11,7 @@ class Car:
 
     def litres_per_trip(
             self,
-            shop: Shops,
+            shop: Shop,
             customer: Customer
     ) -> int | float:
         distance = shop.calculate_trip_distance(customer)

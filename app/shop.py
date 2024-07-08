@@ -6,7 +6,7 @@ from app.customer import Customer
 
 
 @dataclass
-class Shops:
+class Shop:
     name: str
     location: list[int]
     products: dict
@@ -16,20 +16,23 @@ class Shops:
 
     def shopping_cost(self, customer: Customer) -> int | float:
         return sum(
-            (self.products.get(keys) * value)
-            for keys, value in customer.product_cart.items()
+            (self.products.get(names) * costs)
+            for names, costs in customer.product_cart.items()
         )
 
     def print_check(self, customer: Customer) -> None:
         datatime_now = datetime(2021, 1, 4, 12, 33, 41)
-        print(f'\nDate: {datatime_now.strftime("%d/%m/%Y %H:%M:%S")}')
-        print(f"Thanks, {customer.name}, for your purchase!")
-        print("You have bought:")
-        for keys, value in customer.product_cart.items():
-            amount = self.products[keys] * value
-            print(f"{value} {keys}s for "
+        print(
+            f'\nDate: {datatime_now.strftime("%d/%m/%Y %H:%M:%S")}\n'
+            f"Thanks, {customer.name}, for your purchase!\n"
+            f"You have bought:"
+        )
+        for names, costs in customer.product_cart.items():
+            amount = self.products[names] * costs
+            print(f"{costs} {names}s for "
                   f"{int(amount) if float(amount) == int(amount) else amount} "
                   f"dollars")
+
         print(
             f"Total cost is {self.shopping_cost(customer)} dollars\n"
             f"See you again!"
