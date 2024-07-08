@@ -15,10 +15,10 @@ class Shops:
         return math.dist(self.location, customer.location)
 
     def shopping_cost(self, customer: Customer) -> int | float:
-        total = 0
-        for keys, value in customer.product_cart.items():
-            total += self.products.get(keys) * value
-        return total
+        return sum(
+            (self.products.get(keys) * value)
+            for keys, value in customer.product_cart.items()
+        )
 
     def print_check(self, customer: Customer) -> None:
         datatime_now = datetime(2021, 1, 4, 12, 33, 41)
